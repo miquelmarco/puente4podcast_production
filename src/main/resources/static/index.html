@@ -11,8 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="./assets/styles/style.css">
-    <link rel="shortcut icon" href="./assets/images/P4_W.png" type="image/x-icon">
+    <link rel="stylesheet" href="web/assets/styles/style.css">
+    <link rel="shortcut icon" href="web/assets/images/P4_W.png" type="image/x-icon">
     <title>INICIO || Puente4Podcast</title>
 </head>
 
@@ -33,40 +33,40 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
                                 <div class="d-flex justify-content-center align-items-center">
-                                    <img class="logoHeader" src="./assets/images/P4_B.png" alt="logo">
+                                    <img class="logoHeader" src="web/assets/images/P4_B.png" alt="logo">
                                 </div>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
                                     <a class="nav-link active" aria-current="page" href="#"><span
                                             class="navBgChanger">Home</span></a>
                                 </li>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <a class="nav-link" href="./assets/pages/episodes.html">EPISODIOS</a>
+                                    <a class="nav-link" href="web/assets/pages/episodes.html">EPISODIOS</a>
                                 </li>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <a class="nav-link" href="./assets/pages/archives.html">ARCHIVOS</a>
+                                    <a class="nav-link" href="web/assets/pages/archives.html">ARCHIVOS</a>
                                 </li>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <a class="nav-link" href="./assets/pages/myProfile.html">TU PERFIL</a>
+                                    <a class="nav-link" href="web/assets/pages/myProfile.html">TU PERFIL</a>
                                 </li>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <a class="nav-link" href="./assets/pages/favs.html">FAVORITOS</a>
+                                    <a class="nav-link" href="web/assets/pages/favs.html">FAVORITOS</a>
                                 </li>
                             </ul>
                             <div class="d-flex justify-content-center align-items-center">
                                 <a target="_blank" href="https://discord.gg/vxJVawjzyW">
-                                    <video class="disVid" src="./assets/videos/discVidWhiteBg33.mp4" loop
+                                    <video class="disVid" src="web/assets/videos/discVidWhiteBg33.mp4" loop
                                         autoplay></video>
                                 </a>
                             </div>
                             <div v-if="current.length === 0"
                                 class="mx-3 d-flex justify-content-center align-items-center gap-2 m-2">
-                                <a href="./assets/pages/regLog.html"><button class="button-30"
+                                <a href="web/assets/pages/regLog.html"><button class="button-30"
                                         role="button">Login</button></a>
                             </div>
                             <div v-cloak v-if="current.length != 0" class="d-flex">
                                 <h2 class="mx-3 text-danger fw-bolder">{{current.userName}}</h2>
                                 <button @click="logOut" class="button-30 bg-danger" role="button">LogOut</button>
-                                <a href="./admin.html">
+                                <a href="web/admin.html">
                                     <button v-if="current.admin" class="button-30" role="button">pa</button>
                                 </a>
                             </div>
@@ -78,7 +78,7 @@
         <main class="mainIndex">
             <section class="text-white d-flex flex-column align-items-center p-3 m-2">
                 <div class="d-flex m-1">
-                    <img class="logoTitle px-2" src="./assets/images/P4_W.jpg" alt="logo">
+                    <img class="logoTitle px-2" src="web/assets/images/P4_W.jpg" alt="logo">
                     <h1>Puente4Podcast</h1>
                 </div>
                 <div class="m-1">
@@ -119,7 +119,7 @@
                                     class="button-30 btnDetails">Detalles</button></a>
                             <button @click="addEpFav(featured.id)" class="button-30 btnDetails">Favorito</button>
                         </div>
-                        <a href="./assets/pages/details.html"></a>
+                        <a href="web/assets/pages/details.html"></a>
                     </div>
                 </div>
             </section>
@@ -159,7 +159,7 @@
                 </div>
             </section>
             <a target="_blank" href="https://www.patreon.com/puente4podcast/membership">
-                <video src="./assets/videos/bannerPat.mp4" class="w-100" loop autoplay></video>
+                <video src="web/assets/videos/bannerPat.mp4" class="w-100" loop autoplay></video>
             </a>
         </main>
         <footer class="footerIndex d-flex justify-content-around align-items-center">
@@ -181,25 +181,25 @@
             <div class="footerLogosContainer d-flex flex-column align-items-center justify-content-between">
                 <div class="m-3 w-75 d-flex justify-content-around containerAnchorsLogosF flex-wrap">
                     <a target="_blank" href="https://www.youtube.com/@Puente4Podcast"><img class="redLogos p-1"
-                            src="./assets/images/icons8-youtube-50.png" alt="rrsslogo"></a>
+                            src="web/assets/images/icons8-youtube-50.png" alt="rrsslogo"></a>
                     <a target="_blank" href="https://www.instagram.com/puente4podcast/"><img class="redLogos p-1"
-                            src="./assets/images/icons8-instagram-50.png" alt="rrsslogo"></a>
+                            src="web/assets/images/icons8-instagram-50.png" alt="rrsslogo"></a>
                     <a target="_blank" href="https://www.patreon.com/puente4podcast/posts"><img class="redLogos p-1"
-                            src="./assets/images/patreon_5968728.png" alt="rrsslogo"></a>
+                            src="web/assets/images/patreon_5968728.png" alt="rrsslogo"></a>
                     <a target="_blank" href="https://www.tiktok.com/@puente4podcast?lang=es"><img class="redLogos p-1"
-                            src="./assets/images/icons8-tik-tok-50.png" alt="rrsslogo"></a>
+                            src="web/assets/images/icons8-tik-tok-50.png" alt="rrsslogo"></a>
                     <a target="_blank" href="https://twitter.com/Puente4Podcast"><img class="redLogos p-1"
-                            src="./assets/images/icons8-x-50.png" alt="rrsslogo"></a>
+                            src="web/assets/images/icons8-x-50.png" alt="rrsslogo"></a>
                     <a target="_blank" href="https://www.ivoox.com/podcast-puente4podcast_sq_f11105139_1.html"><img
-                            class="redLogos p-1" src="./assets/images/ivoox.png" alt="rrsslogo"></a>
+                            class="redLogos p-1" src="web/assets/images/ivoox.png" alt="rrsslogo"></a>
                     <a target="_blank" href="https://www.reddit.com/r/Puente4Podcast/"><img class="redLogos p-1"
-                            src="./assets/images/redditlogo.png" alt="rrsslogo"></a>
+                            src="web/assets/images/redditlogo.png" alt="rrsslogo"></a>
                 </div>
                 <div class="finalTextF">
                     <p>Síguenos en nuestras redes sociales!</p>
                 </div>
                 <div class="d-flex flex-column justify-content-center align-items-center m-3">
-                    <img class="logoFooter m-1" src="./assets/images/P4_B.png" alt="logop4p">
+                    <img class="logoFooter m-1" src="web/assets/images/P4_B.png" alt="logop4p">
                     <p>®Puente4Podcast</p>
                 </div>
             </div>
@@ -211,7 +211,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./assets/scripts/index.js"></script>
+    <script src="web/assets/scripts/index.js"></script>
 </body>
 
 </html>
