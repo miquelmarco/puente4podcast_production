@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../styles/arDetails.css">
+    <link rel="shortcut icon" href="../images/P4_W.png" type="image/x-icon">
+    <title>DETALLES || Puente4Podcast</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="loading-overlay" v-if="isLoading">
+            LOADING...
+        </div>
+        <header class="headerIndex">
+            <section>
+                <nav class="navbar navbar-expand-lg bg-body-tertiary position-fixed w-100">
+                    <div class="container-fluid px-3">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <img class="logoHeader" src="../images/P4_B.png" alt="logo">
+                                </div>
+                                <li class="nav-item d-flex justify-content-center align-items-center">
+                                    <a class="nav-link active" aria-current="page" href="../../index.html">Home</a>
+                                </li>
+                                <li class="nav-item d-flex justify-content-center align-items-center">
+                                    <a class="nav-link" href="./episodes.html">EPISODIOS</a>
+                                </li>
+                                <li class="nav-item d-flex justify-content-center align-items-center">
+                                    <a class="nav-link" href="./archives.html"><span
+                                            class="navBgChanger">ARCHIVOS</span></a>
+                                </li>
+                                <li class="nav-item d-flex justify-content-center align-items-center">
+                                    <a class="nav-link" href="./myProfile.html">TU PERFIL</a>
+                                </li>
+                                <li class="nav-item d-flex justify-content-center align-items-center">
+                                    <a class="nav-link" href="./favs.html">FAVORITOS</a>
+                                </li>
+                            </ul>
+                            <div class="d-flex justify-content-center align-items-center">
+                                <a target="_blank" href="https://discord.gg/vxJVawjzyW">
+                                    <video class="disVid" src="../videos/discVidWhiteBg33.mp4" loop autoplay></video>
+                                </a>
+                            </div>
+                            <div v-if="current.length === 0"
+                                class="mx-3 d-flex justify-content-center align-items-center gap-2 m-2">
+                                <a href="./regLog.html"><button class="button-30" role="button">Login</button></a>
+                            </div>
+                            <div v-cloak v-if="current.length != 0" class="d-flex">
+                                <h2 class="mx-3 text-danger fw-bolder">{{current.userName}}</h2>
+                                <button @click="logOut" class="button-30 bg-danger" role="button">LogOut</button>
+                                <button v-if="current.admin" class="button-30" role="button">pa</button>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </section>
+        </header>
+        <main v-cloak class="mainIndex d-flex flex-column justify-content-center align-items-center">
+            <div class="completeContainer w-75 bg-white m-2">
+                <h3 class="text-black text-center m-2 p-2">{{archive.name}}</h3>
+                <div class="firstArDetContainer d-flex justify-content-around align-items-center">
+                    <img class="imgArDt object-fit-cover w-25 m-2 p-2" :src="archive.img" :alt="archive.name"
+                        :title="archive.name">
+                    <div class="d-flex flex-column align-items-center gap-2">
+                        <p>Duración: {{archive.duration}}</p>
+                        <p>Archivo Nº {{archive.archiveNumber}}</p>
+                        <p>Categoría: {{archive.category}}</p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <p class="m-2 p-2 fw-bolder w-75">{{archive.description}}</p>
+                </div>
+            </div>
+            <div>
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <h1 class="text-white m-2 p-2">Deja tu comentario!</h1>
+                    <textarea @keydown.enter.prevent="enterCom" v-model="commentText" class="textareaDetails m-3 p-3"
+                        name="textarea" id="textarea" cols="30" rows="10"></textarea>
+                    <button @click="addComment" class="button-30 m-3">Comentar!</button>
+                </div>
+                <div class="bg-white m-2 p-2 mb-4" v-for="item of comentariesAr">
+                    <p class="text-black">{{item.text}}</p>
+                    <div class="d-flex justify-content-between">
+                        <p class="text-black m-2 text-end fw-bolder">{{item.podcastUserArCom}}</p>
+                        <p class="text-black m-2 text-end fw-bolder">
+                            {{item.date.slice(8,10)}}-{{item.date.slice(5,7)}}-{{item.date.slice(0,4)}}
+                    </div>
+                    </p>
+                </div>
+            </div>
+            <a target="_blank" href="https://www.patreon.com/puente4podcast/membership">
+                <video src="../videos/bannerPat.mp4" class="w-100" loop autoplay></video>
+            </a>
+        </main>
+        <footer class="footerIndex d-flex justify-content-around align-items-center">
+            <div class="footerTxtContainer d-flex flex-column justify-content-center">
+                <a class="text-decoration-none" href="mailto:puente4podcast@gmail.com">
+                    <p class="footerPs bg-black text-white m-1 p-1">@Envíanos un mail a @Puente4Podcast!</p>
+                </a>
+                <a class="text-decoration-none" target="_blank" href="https://www.patreon.com/puente4podcast/posts">
+                    <p class="footerPs bg-black text-white m-1 p-1">@Apóyanos en Patreon!</p>
+                </a>
+                <p class="bg-black text-white m-1 p-1">@España</p>
+                <p class="bg-black text-white m-1 p-1">@Reservados los derechos de intelectualidad</p>
+                <a target="_blank" class="text-decoration-none" href="https://github.com/miquelmarco">
+                    <p class="footerPs bg-black text-white m-1 p-1">@Develop by Marco Miquel || Desarrollador Full-Stack
+                        JAVA
+                    </p>
+                </a>
+            </div>
+            <div class="footerLogosContainer d-flex flex-column align-items-center justify-content-between">
+                <div class="m-3 w-75 d-flex justify-content-around containerAnchorsLogosF flex-wrap">
+                    <a target="_blank" href="https://www.youtube.com/@Puente4Podcast"><img class="redLogos p-1"
+                            src="../../assets/images/icons8-youtube-50.png" alt="rrsslogo"></a>
+                    <a target="_blank" href="https://www.instagram.com/puente4podcast/"><img class="redLogos p-1"
+                            src="../../assets/images/icons8-instagram-50.png" alt="rrsslogo"></a>
+                    <a target="_blank" href="https://www.patreon.com/puente4podcast/posts"><img class="redLogos p-1"
+                            src="../../assets/images/patreon_5968728.png" alt="rrsslogo"></a>
+                    <a target="_blank" href="https://www.tiktok.com/@puente4podcast?lang=es"><img class="redLogos p-1"
+                            src="../../assets/images/icons8-tik-tok-50.png" alt="rrsslogo"></a>
+                    <a target="_blank" href="https://twitter.com/Puente4Podcast"><img class="redLogos p-1"
+                            src="../../assets/images/icons8-x-50.png" alt="rrsslogo"></a>
+                    <a target="_blank" href="https://www.ivoox.com/podcast-puente4podcast_sq_f11105139_1.html"><img
+                            class="redLogos p-1" src="../../assets/images/ivoox.png" alt="rrsslogo"></a>
+                    <a target="_blank" href="https://www.reddit.com/r/Puente4Podcast/"><img class="redLogos p-1"
+                            src="../images/redditlogo.png" alt="rrsslogo"></a>
+                </div>
+                <div>
+                    <p>Síguenos en nuestras redes sociales!</p>
+                </div>
+                <div class="d-flex flex-column justify-content-center align-items-center m-3">
+                    <img class="logoFooter m-1" src="../../assets/images/P4_B.png" alt="logop4p">
+                    <p>®Puente4Podcast</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../scripts/arDetails.js"></script>
+</body>
+
+</html>

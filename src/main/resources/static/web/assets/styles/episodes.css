@@ -1,0 +1,333 @@
+* {
+    box-sizing: border-box !important;
+    font-family: 'M PLUS 1 Code', monospace !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    /* border: solid red 1px; */
+}
+
+body {
+    background-color: black;
+}
+
+header {
+    min-height: 10vh;
+}
+
+main {
+    min-height: 90vh;
+}
+
+footer {
+    min-height: 10vh;
+}
+
+[v-cloak]>* {
+    display: none;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    color: white;
+    font-size: 2.5rem;
+}
+
+/* btn edit */
+
+.button-30 {
+    width: 6rem;
+    align-items: center;
+    appearance: none;
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395A;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono", monospace;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s, transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 18px;
+}
+
+.button-30:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.button-30:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+    color: white;
+    background-color: black;
+    transition: 0.4s;
+}
+
+.button-30:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+/* episodes header edit */
+
+.navBgChanger {
+    color: white !important;
+    background-color: black !important;
+    padding: 0.5rem !important;
+    border-radius: 0.5rem !important;
+}
+
+.logoHeader {
+    height: 3rem;
+    width: 3rem;
+}
+
+.navbar {
+    min-height: 10vh;
+    font-weight: bolder;
+    z-index: 1;
+}
+
+.btnLoginRegister {
+    padding: 0.3rem !important;
+    width: 10rem;
+}
+
+.btnSearch {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #000000 0 -3px 0 inset;
+}
+
+.btnSearch:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #000000 0 -3px 0 inset;
+    transform: translateY(-2.5px);
+    transition: 0.3s;
+}
+
+li>a {
+    padding: 0.5rem !important;
+    border-radius: 0.5rem !important;
+}
+
+li>a:hover {
+    color: white !important;
+    background-color: black !important;
+    transition: 0.3s !important;
+}
+
+.disVid {
+    border-radius: 1rem;
+    border-style: outset;
+    border-color: violet;
+}
+
+.disVid:hover {
+    border-color: black;
+    transition: 0.3s;
+    border-style: dashed;
+}
+
+/* index main edit */
+
+.mainIndex {
+    min-height: 90vh;
+}
+
+.logoTitle {
+    height: 3rem;
+}
+
+.podcastSubTitle {
+    font-size: 1.3rem;
+}
+
+.podcastSubTitleSpan {
+    font-family: 'Caveat', cursive !important;
+    font-size: 1.9rem !important;
+    color: red;
+    text-shadow: rgb(147, 134, 134) 0.6px 0.45px;
+}
+
+.podcastSubTitleEp {
+    display: block;
+    white-space: nowrap;
+    border-right: 4px solid;
+    width: 32ch;
+    color: White;
+    animation: typing 2s steps(32),
+        blink 0.5s infinite step-end alternate;
+    overflow: hidden;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent
+    }
+}
+
+/* sub episode card edit */
+
+.cardContainer {
+    transition: 0.3s;
+    min-height: 20rem;
+    max-width: 13rem;
+    border: solid white 1px;
+    box-shadow: rgba(255, 255, 255, 0.4) 0px 5px 7px, rgba(255, 255, 255, 0.3) 0px 5px 8px -3px, rgba(255, 255, 255, 0.2) 0px -5px 0px inset;
+}
+
+.cardContainer:hover {
+    transform: translateY(-5px);
+    transition: 0.2s;
+    box-shadow: rgba(113, 11, 11, 0.741) 0px 5px 7px, rgba(125, 18, 18, 0.752) 0px 5px 8px -3px, rgba(191, 12, 12, 0.393) 0px -5px 0px inset;
+}
+
+.cardImg {
+    border: solid white 1px;
+}
+
+.cardName {
+    color: white !important;
+    font-weight: 700;
+}
+
+.cardName:hover {
+    color: rgb(234, 60, 60) !important;
+    transition: 0.3s !important;
+}
+
+.seasonDetail {
+    font-size: 0.7rem;
+}
+
+.btnCardYt,
+.btnCardIv,
+.btnDetails {
+    height: 1.5rem;
+}
+
+.btnCardYt:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #ffffff 0 -3px 0 inset;
+    background-color: red;
+    transform: translateY(-2.5px);
+    transition: 0.3s;
+}
+
+.btnCardIv:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #ffffff 0 -3px 0 inset;
+    background-color: orange;
+    transform: translateY(-2.5px);
+    transition: 0.3s;
+}
+
+/* index footer edit */
+
+.footerIndex {
+    min-height: 50vh;
+    background-color: #d5d5db;
+}
+
+.logoFooter {
+    height: 5rem;
+}
+
+.redLogos {
+    height: 3rem;
+    margin: 0.5rem !important;
+    transition: 0.3s;
+}
+
+.redLogos:hover {
+    background-color: #4f4c4c5c;
+    transform: translateY(-5px);
+    border-radius: 0.5rem;
+    transition: 0.3s;
+}
+
+.footerLogosContainer {
+    height: 40vh;
+    width: 50vw;
+}
+
+.footerTxtContainer {
+    height: 40vh;
+}
+
+.footerPs {
+    transition: 0.3s;
+}
+
+.footerPs:hover {
+    transform: translateY(-3px);
+    background-color: #4f4c4c5c !important;
+    color: black !important;
+    transition: 0.3s;
+    font-weight: 900 !important;
+}
+
+/* ckeckbox edit */
+
+
+.checkContainer {
+    border-radius: 0.5rem;
+}
+
+.checkContainer:hover {
+    background-color: rgb(82, 80, 80) !important;
+    color: black !important;
+    transition: 0.5s !important;
+}
+
+.labelCheck {
+    cursor: pointer;
+}
+
+.inputCheck {
+    height: 1.5rem;
+    width: 1.5rem;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 975px) {
+    .footerIndex {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+
+    .containerAnchorsLogosF,
+    .footerLogosContainer,
+    .footerIndex {
+        width: 100% !important;
+    }
+}
