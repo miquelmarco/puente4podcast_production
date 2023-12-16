@@ -11,9 +11,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../styles/episodes.css">
+    <link rel="stylesheet" href="../styles/myProfile.css">
     <link rel="shortcut icon" href="../images/P4_W.png" type="image/x-icon">
-    <title>EPISODIOS || Puente4Podcast</title>
+    <title>TU PERFIL || Puente4Podcast</title>
 </head>
 
 <body>
@@ -36,19 +36,19 @@
                                     <img class="logoHeader" src="../images/P4_B.png" alt="logo">
                                 </div>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <a class="nav-link active" aria-current="page" href="../../../index.html">Home</a>
+                                    <a class="nav-link active" aria-current="page" href="../../index.html">Home</a>
                                 </li>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <a class="nav-link" href="#"><span class="navBgChanger">EPISODIOS</span></a>
+                                    <a class="nav-link" href="episodes.html">EPISODIOS</a>
                                 </li>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <a class="nav-link" href="./archives.html">ARCHIVOS</a>
+                                    <a class="nav-link" href="archives.html">ARCHIVOS</a>
                                 </li>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <a class="nav-link" href="./myProfile.html">TU PERFIL</a>
+                                    <a class="nav-link" href="#"><span class="navBgChanger">TU PERFIL</span></a>
                                 </li>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <a class="nav-link" href="./favs.html">FAVORITOS</a>
+                                    <a class="nav-link" href="favs.html">FAVORITOS</a>
                                 </li>
                             </ul>
                             <div class="d-flex justify-content-center align-items-center">
@@ -56,9 +56,9 @@
                                     <video class="disVid" src="../videos/discVidWhiteBg33.mp4" loop autoplay></video>
                                 </a>
                             </div>
-                            <div v-cloak v-if="current.length === 0"
+                            <div v-if="current.length === 0"
                                 class="mx-3 d-flex justify-content-center align-items-center gap-2 m-2">
-                                <a href="./regLog.html"><button class="button-30" role="button">Login</button></a>
+                                <a href="regLog.html"><button class="button-30" role="button">Login</button></a>
                             </div>
                             <div v-cloak v-if="current.length != 0" class="d-flex justify-content-center">
                                 <h2 class="mx-3 text-danger fw-bolder">{{current.userName}}</h2>
@@ -70,61 +70,60 @@
                 </nav>
             </section>
         </header>
-        <main v-cloak class="mainIndex d-flex flex-column align-items-center">
-            <!-- title edit -->
-            <section v-cloak class="text-white d-flex flex-column align-items-center p-3 m-2">
+        <main v-cloak class="mainIndex d-flex flex-column align-items-center justify-content-between gap-3">
+            <section class="text-white d-flex flex-column align-items-center p-3 m-2">
                 <div class="d-flex m-1">
-                    <img class="logoTitle px-2" src="../images/P4_W.png" alt="logo">
-                    <h1>Puente4Podcast</h1>
+                    <h1>Bienvenido a tu Perfil!</h1>
                 </div>
-                <div v-cloak class="m-1">
-                    <p class="podcastSubTitleEp">Encuentra tu canónigo favorito!</p>
+                <div class="m-1">Actualiza tus datos para matenernos en contacto!</p>
                 </div>
+                <div v-if="current.length === 0" class="d-flex justify-content-center align-items-center">
+                    <p class="text-center text-white"><span class="text-danger fw-bolder">Loguéate</span> o<span
+                            class="text-danger fw-bolder"> regístrate</span> para ver tu perfil!</p>
+                </div>
+                <img v-if="current.length === 0" class="m-3 w-100" src="../images/banner1.png" alt="">
             </section>
-            <section v-cloak class="d-flex justify-content-center gap-3 bg-secondary flex-wrap">
-                <div v-cloak class="checkContainer m-2 bg-black d-flex justify-content-center align-items-center"
-                    v-for="season of seasons">
-                    <label class="labelCheck m-2 text-white" :for="season">Temporada {{season}}</label>
-                    <input class="inputCheck m-2" type="checkbox" :id="season" v-model="checked" :value="season">
-                </div>
-                <div v-cloak class="d-flex justify-content-center align-items-center m-2">
-                    <form v-cloak class="d-flex align-items-center p-1" role="search">
-                        <input class="form-control me-2 px-2" type="search" placeholder="Buscar episodio...  "
-                            aria-label="Search" v-model="searchInput">
-                    </form>
-                </div>
+            <section v-if="current.length != 0" v-cloak class="w-50 d-flex justify-content-center align-items-center">
+                <table class="text-white w-75 border-2 border-white">
+                    <tr class="d-flex gap-3 justify-content-between border-bottom">
+                        <th class="text-danger fw-bolder">Usuario</th>
+                        <td>{{current.userName}}</td>
+                    </tr>
+                    <tr class="d-flex gap-3 justify-content-between border-bottom">
+                        <th class="text-danger fw-bolder">Nombre</th>
+                        <td>{{current.firstName}}</td>
+                    </tr>
+                    <tr class="d-flex gap-3 justify-content-between border-bottom">
+                        <th class="text-danger fw-bolder">Apellido</th>
+                        <td>{{current.lastName}}</td>
+                    </tr>
+                    <tr class="d-flex gap-3 justify-content-between border-bottom">
+                        <th class="text-danger fw-bolder">E-Mail</th>
+                        <td>{{current.mail}}</td>
+                    </tr>
+                    <tr class="d-flex gap-3 justify-content-between border-bottom">
+                        <th class="text-danger fw-bolder">País</th>
+                        <td>{{current.nacionality}}</td>
+                    </tr>
+                </table>
             </section>
-            <section v-cloak class=" d-flex justify-content-center gap-3 m-3 flex-wrap w-75">
-                <div v-cloak class="cardContainer d-flex flex-column justify-content-between align-items-center m-3"
-                    v-for="item of filteredEp">
-                    <a target="_blank" :href="item.linkYt"><img class="cardImg w-100" :src="item.img" :alt="item.name"
-                            :title="item.name"></a>
-                    <div>
-                        <a class="text-decoration-none" target="_blank" :href="item.linkYt">
-                            <p class="cardName text-white text-center m-1">{{item.name}}</p>
-                        </a>
-                    </div>
-                    <div>
-                        <div>
-                            <p class="text-white text-end mx-2 seasonDetail">Temporada {{item.seasonNumber}},
-                                episodio
-                                {{item.episode}}</p>
-                            <p class="text-white text-end mx-2 seasonDetail">{{item.duration}} hrs</p>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center m-1 gap-1">
-                            <a target="_blank" :href="item.linkYt"><button
-                                    class="button-30 btnCardYt">Youtube</button></a>
-                            <a target="_blank" :href="item.linkIvoox"><button
-                                    class="button-30 btnCardIv">Ivoox</button></a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center m-1 gap-1">
-                            <a :href="`./details.html?id=${item.id}`"><button
-                                    class="button-30 btnDetails">Detalles</button></a>
-                            <button @click="addEpFav(item.id)" class="button-30 btnDetails">Favorito</button>
-                        </div>
-                    </div>
+            <div v-cloak v-if="current.length != 0" class="d-flex gap-3 m-2 p-3">
+                <label class="text-white" for="selecModPass">Si deseas cambiar tu contraseña =></label>
+                <input type="checkbox" id="selecModPass" name="selecModPass" v-model="selecModPass">
+            </div>
+            <div v-if="selecModPass" class="text-white m-3">
+                <h3 class="text-center m-3">Modificar Contraseña</h3>
+                <div class="changePssCont d-flex flex-column align-items-center gap-2">
+                    <label class="modPC" for="modPassActual">Contraseña Actual</label>
+                    <input class="modPC" v-model="modPassActual" type="password" name="modPassActual"
+                        id="modPassActual">
+                    <label class="modPC" for="newPass">Nueva contraseña</label>
+                    <input class="modPC" v-model="modPass" type="text" name="newPass" id="newPass">
+                    <label class="modPC" for="newPassConfirm">Confirma la nueva contraseña</label>
+                    <input class="modPC" v-model="modPassConfirm" type="text" name="newPassConfirm" id="newPassConfirm">
+                    <button @click="modiPass()" class="button-30 m-2" role="button">Modificar</button>
                 </div>
-            </section>
+            </div>
             <a target="_blank" href="https://www.patreon.com/puente4podcast/membership">
                 <video src="../videos/bannerPat.mp4" class="w-100" loop autoplay></video>
             </a>
@@ -148,30 +147,29 @@
             <div v-cloak class="footerLogosContainer d-flex flex-column align-items-center justify-content-between">
                 <div v-cloak class="m-3 w-75 d-flex justify-content-around containerAnchorsLogosF flex-wrap">
                     <a target="_blank" href="https://www.youtube.com/@Puente4Podcast"><img class="redLogos p-1"
-                            src="../../assets/images/icons8-youtube-50.png" alt="rrsslogo"></a>
+                                                                                           src="..ons8-youtube-50.png" alt="rrsslogo"></a>
                     <a target="_blank" href="https://www.instagram.com/puente4podcast/"><img class="redLogos p-1"
-                            src="../../assets/images/icons8-instagram-50.png" alt="rrsslogo"></a>
+                                                                                             src="..ons8-instagram-50.png" alt="rrsslogo"></a>
                     <a target="_blank" href="https://www.patreon.com/puente4podcast/posts"><img class="redLogos p-1"
-                            src="../../assets/images/patreon_5968728.png" alt="rrsslogo"></a>
+                                                                                                src="..treon_5968728.png" alt="rrsslogo"></a>
                     <a target="_blank" href="https://www.tiktok.com/@puente4podcast?lang=es"><img class="redLogos p-1"
-                            src="../../assets/images/icons8-tik-tok-50.png" alt="rrsslogo"></a>
+                                                                                                  src="..ons8-tik-tok-50.png" alt="rrsslogo"></a>
                     <a target="_blank" href="https://twitter.com/Puente4Podcast"><img class="redLogos p-1"
-                            src="../../assets/images/icons8-x-50.png" alt="rrsslogo"></a>
+                                                                                      src="..ons8-x-50.png" alt="rrsslogo"></a>
                     <a target="_blank" href="https://www.ivoox.com/podcast-puente4podcast_sq_f11105139_1.html"><img
-                            class="redLogos p-1" src="../../assets/images/ivoox.png" alt="rrsslogo"></a>
+                            class="redLogos p-1" src="..oox.png" alt="rrsslogo"></a>
                     <a target="_blank" href="https://www.reddit.com/r/Puente4Podcast/"><img class="redLogos p-1"
-                            src="../images/redditlogo.png" alt="rrsslogo"></a>
+                                                                                            src="../images/redditlogo.png" alt="rrsslogo"></a>
                 </div>
                 <div v-cloak>
                     <p>Síguenos en nuestras redes sociales!</p>
                 </div>
                 <div v-cloak class="d-flex flex-column justify-content-center align-items-center m-3">
-                    <img class="logoFooter m-1" src="../../assets/images/P4_B.png" alt="logop4p">
+                    <img class="logoFooter m-1" src=".._B.png" alt="logop4p">
                     <p>®Puente4Podcast</p>
                 </div>
             </div>
         </footer>
-        {{filtroEpCheckSearch}}
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
@@ -179,7 +177,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../scripts/episodes.js"></script>
+    <script src="../scripts/myProfile.js"></script>
 </body>
 
 </html>
