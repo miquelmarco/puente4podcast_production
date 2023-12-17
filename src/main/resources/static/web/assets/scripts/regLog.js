@@ -60,6 +60,24 @@ setTimeout(() => {
                     this.mail &&
                     this.nacionality &&
                     this.password) {
+                    const userNamePattern = /^[a-zA-Z0-9]{0,10}$/
+                    if (!userNamePattern.test(this.userName)) {
+                        return Swal.fire({
+                            position: 'center',
+                            title: 'El nombre de usuario solo puede contener letras y números',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                    const passwordPattern = /^[a-zA-Z0-9]{8,}$/
+                    if (!passwordPattern.test(this.password)) {
+                        return Swal.fire({
+                            position: 'center',
+                            title: 'La contraseña debe tener al menos 8 caracteres y contener solo letras y números',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
                     if (this.password === this.passwordConfirm) {
                         axios.post(`/api/register`, `firstName=${this.firstName}&lastName=${this.lastName}&userName=${this.userName}&mail=${this.mail}&nacionality=${this.nacionality}&password=${this.password}`,
                             { headers: { 'content-type': 'application/x-www-form-urlencoded' } }

@@ -189,7 +189,7 @@ setTimeout(() => {
                     this.archDescription
                 ) {
                     axios.post(`/api/archives/newArchive`, `archNumber=${this.archNumber}&archName=${this.archName}&archImg=${this.archImg}
-                    &archLinkYt=${this.archLinkYt}&archLinkIVoox=${this.epLinkIVoox}&archDuration=${this.archDuration}&archDescription==${this.archDescription}`)
+                    &archLinkYt=${this.archLinkYt}&archLinkIVoox=${this.archLinkIVoox}&archDuration=${this.archDuration}&archDescription==${this.archDescription}`)
                         .then(res => {
                             this.backMsg = res.data
                             Swal.fire({

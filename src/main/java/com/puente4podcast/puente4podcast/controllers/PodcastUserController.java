@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @RestController
@@ -39,8 +41,10 @@ public class PodcastUserController {
         if (password.isBlank()) {
             return new ResponseEntity<>("Ingresa tu contraseña", HttpStatus.FORBIDDEN);
         }
-        if (password.length() < 8) {
-            return new ResponseEntity<>("La contraseña debe tener al menos 8 caracteres", HttpStatus.FORBIDDEN);
+        Pattern passwordPattern = Pattern.compile("^[a-zA-Z0-9]{8,}$");
+        Matcher passwordMatcher = passwordPattern.matcher(password);
+        if (!passwordMatcher.matches()) {
+            return new ResponseEntity<>("La contraseña debe tener al menos 8 caracteres y contener sólo letras y números", HttpStatus.FORBIDDEN);
         }
         if (firstName.isBlank()) {
             return new ResponseEntity<>("Ingresa tu nombre", HttpStatus.FORBIDDEN);
@@ -50,6 +54,10 @@ public class PodcastUserController {
         }
         if (userName.isBlank()) {
             return new ResponseEntity<>("Ingresa tu nombre de usuario", HttpStatus.FORBIDDEN);
+        }
+        String userNamePattern = "^[a-zA-Z0-9]{0,10}$";
+        if (!userName.matches(userNamePattern)) {
+            return new ResponseEntity<>("El nombre de usuario debe contener solo letras y números y tener como máximo 10 caracteres", HttpStatus.FORBIDDEN);
         }
         if (mail.isBlank()) {
             return new ResponseEntity<>("Ingresa tu mail", HttpStatus.FORBIDDEN);
