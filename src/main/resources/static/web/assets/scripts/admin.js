@@ -210,6 +210,8 @@ setTimeout(() => {
                                 timer: 1500
                             })
                         })
+                } else {
+                    console.log("No está funcionando")
                 }
             },
             modEFeatured() {

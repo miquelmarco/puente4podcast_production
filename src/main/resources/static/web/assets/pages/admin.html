@@ -186,19 +186,19 @@
                 <h3 class="p-2 m-3 text-black bg-white">Ingresar Archivo</h3>
                 <form class="text-white d-flex flex-column gap-2">
                     <label for="archNumber">Número de archivo</label>
-                    <input type="number" id="archNumber">
+                    <input type="number" id="archNumber" v-model="archNumber">
                     <label for="archName">Nombre del archivo</label>
-                    <input type="text" id="archName">
+                    <input type="text" id="archName" v-model="archName">
                     <label for="archImg">Url Miniatura</label>
-                    <input type="text" id="archImg">
+                    <input type="text" id="archImg" v-model="archImg">
                     <label for="archLinkYt">Url Youtube</label>
-                    <input type="text" id="archLinkYt">
+                    <input type="text" id="archLinkYt" v-model="archLinkYt">
                     <label for="archLinkIVoox">Url Ivoox</label>
-                    <input type="text" id="archLinkIVoox">
+                    <input type="text" id="archLinkIVoox" v-model="archLinkIVoox">
                     <label for="archDuration">Duración (Formato 1:11:11)</label>
-                    <input type="text" id="archDuration">
+                    <input type="text" id="archDuration" v-model="archDuration">
                     <label for="archDescription">Descripción del archivo</label>
-                    <textarea v-model="epDescription" id="archDescription" cols="40" rows="3"></textarea>
+                    <textarea v-model="epDescription" id="archDescription" cols="40" rows="3" v-model="archDescription"></textarea>
                 </form>
                 <button @click="newArchive" class="button-30 w-25 fw-bolder m-3">Ingresar Archivo</button>
             </section>
