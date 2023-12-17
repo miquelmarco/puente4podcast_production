@@ -11,8 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="assets/styles/admin.css">
-    <link rel="shortcut icon" href="assets/images/P4_W.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/admin.css">
+    <link rel="shortcut icon" href="../images/P4_W.png" type="image/x-icon">
     <title>ADMIN PANEL || Puente4Podcast</title>
 </head>
 
@@ -33,34 +33,34 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
                                 <div class="d-flex justify-content-center align-items-center">
-                                    <img class="logoHeader" src="assets/images/P4_B.png" alt="logo">
+                                    <img class="logoHeader" src="../images/P4_B.png" alt="logo">
                                 </div>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                                    <a class="nav-link active" aria-current="page" href="../../index.html">Home</a>
                                 </li>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <a class="nav-link" href="assets/pages/episodes.html">EPISODIOS</a>
+                                    <a class="nav-link" href="episodes.html">EPISODIOS</a>
                                 </li>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <a class="nav-link" href="assets/pages/archives.html">ARCHIVOS</a>
+                                    <a class="nav-link" href="archives.html">ARCHIVOS</a>
                                 </li>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <a class="nav-link" href="assets/pages/myProfile.html">TU PERFIL</a>
+                                    <a class="nav-link" href="myProfile.html">TU PERFIL</a>
                                 </li>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <a class="nav-link" href="assets/pages/favs.html">FAVORITOS</a>
+                                    <a class="nav-link" href="favs.html">FAVORITOS</a>
                                 </li>
                             </ul>
                             <div class="d-flex justify-content-center align-items-center">
                                 <a target="_blank" href="https://discord.gg/vxJVawjzyW">
-                                    <video class="disVid" src="assets/videos/discVidWhiteBg33.mp4" loop
+                                    <video class="disVid" src="../videos/discVidWhiteBg33.mp4" loop
                                            autoplay></video>
                                 </a>
                             </div>
                             <div v-if="current.length === 0"
                                 class="mx-3 d-flex justify-content-center align-items-center gap-2 m-2">
-                                <a href="assets/pages/regLog.html"><button class="button-30"
-                                                                           role="button">Login</button></a>
+                                <a href="regLog.html"><button class="button-30"
+                                                              role="button">Login</button></a>
                             </div>
                             <div v-cloak v-if="current.length != 0" class="d-flex">
                                 <h2 class="mx-3 text-danger fw-bolder">{{current.userName}}</h2>
@@ -75,7 +75,7 @@
         <main v-cloak class="mainIndex d-flex flex-column align-items-center text-white">
             <section class="text-white d-flex flex-column align-items-center p-3 m-2">
                 <div class="d-flex m-1">
-                    <img class="logoTitle px-2" src="assets/images/P4_W.jpg" alt="logo">
+                    <img class="logoTitle px-2" src="../images/P4_W.jpg" alt="logo">
                     <h1>Panel de Admin</h1>
                 </div>
                 <div class="d-flex gap-3 flex-wrap">
@@ -303,7 +303,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="assets/scripts/admin.js"></script>
+    <script src="../scripts/admin.js"></script>
 </body>
 
 </html>
