@@ -23,7 +23,7 @@ public class Authorization {
                 .antMatchers(HttpMethod.POST, "/api/logout").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/register").permitAll()
                 .antMatchers("/web/**").permitAll()
-                .antMatchers("/static/web/index.html").permitAll()
+                .antMatchers("/index.html").permitAll()
                 .antMatchers("/static/web/assets/pages/admin.html").hasAuthority("ADMIN")
                 .antMatchers(HttpMethod.GET, "/api/archives/featured").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/archives/getArchives").permitAll()
