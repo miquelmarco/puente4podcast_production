@@ -28,7 +28,6 @@ setTimeout(() => {
                         if (res.status == 200) {
                             Swal.fire({
                                 position: 'center',
-                                // icon: 'success',
                                 title: 'Bye bye!',
                                 showConfirmButton: false,
                                 timer: 1500
@@ -124,12 +123,11 @@ setTimeout(() => {
                                 timer: 1500
                             })
                             setTimeout(() => {
-                                location.href = `/web/index.html`
+                                location.href = `/index.html`
                             }, 1600)
                         }).catch(err => {
                             Swal.fire({
                                 position: 'center',
-                                // icon: 'error',
                                 title: `Datos erróneos, intenta de nuevo`,
                                 showConfirmButton: false,
                                 timer: 1500
@@ -140,7 +138,6 @@ setTimeout(() => {
                 } else {
                     Swal.fire({
                         position: 'center',
-                        // icon: 'error',
                         title: `Ingresa todos los datos`,
                         showConfirmButton: false,
                         timer: 1500
