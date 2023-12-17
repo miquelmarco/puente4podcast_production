@@ -23,13 +23,12 @@ setTimeout(() => {
                         if (res.status == 200) {
                             Swal.fire({
                                 position: 'center',
-                                // icon: 'success',
                                 title: 'Bye bye!',
                                 showConfirmButton: false,
                                 timer: 1500
                             })
                             setTimeout(() => {
-                                window.location.href = "/web/index.html";
+                                window.location.href = "../../../index.html";
                             }, 1800)
                         }
                         console.log(res)
@@ -62,7 +61,6 @@ setTimeout(() => {
                             this.backMsg = res.data
                             Swal.fire({
                                 position: 'center',
-                                // icon: 'success',
                                 title: `${this.backMsg}`,
                                 showConfirmButton: false,
                                 timer: 700
@@ -71,7 +69,6 @@ setTimeout(() => {
                             this.backMsg = err.response.data
                             Swal.fire({
                                 position: 'center',
-                                // icon: 'error',
                                 title: `${this.backMsg}`,
                                 showConfirmButton: false,
                                 timer: 1000
@@ -80,7 +77,6 @@ setTimeout(() => {
                 } else {
                     Swal.fire({
                         position: 'center',
-                        // icon: 'error',
                         title: `Debes estar logueado`,
                         showConfirmButton: false,
                         timer: 1500
