@@ -39,16 +39,16 @@
                                     <a class="nav-link active" aria-current="page" href="../../../index.html">Home</a>
                                 </li>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <a class="nav-link" href="episodes.html">EPISODIOS</a>
+                                    <a class="nav-link" href="./episodes.html">EPISODIOS</a>
                                 </li>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <a class="nav-link" href="archives.html">ARCHIVOS</a>
+                                    <a class="nav-link" href="./archives.html">ARCHIVOS</a>
                                 </li>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <a class="nav-link" href="myProfile.html">TU PERFIL</a>
+                                    <a class="nav-link" href="./myProfile.html">TU PERFIL</a>
                                 </li>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <a class="nav-link" href="favs.html">FAVORITOS</a>
+                                    <a class="nav-link" href="./favs.html">FAVORITOS</a>
                                 </li>
                             </ul>
                             <div class="d-flex justify-content-center align-items-center">
@@ -63,7 +63,9 @@
                             <div v-cloak v-if="current.length != 0" class="d-flex justify-content-center">
                                 <h2 class="mx-3 text-danger fw-bolder">{{current.userName}}</h2>
                                 <button @click="logOut" class="button-30 bg-danger" role="button">LogOut</button>
-                                <button v-if="current.admin" class="button-30" role="button">pa</button>
+                                <a href="./admin.html">
+                                    <button v-if="current.admin" class="button-30" role="button">pa</button>
+                                </a>
                             </div>
                         </div>
                     </div>
