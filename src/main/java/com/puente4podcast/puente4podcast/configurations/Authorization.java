@@ -22,6 +22,7 @@ public class Authorization {
                 .antMatchers(HttpMethod.POST, "/api/login").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/logout").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/register").permitAll()
+                .antMatchers("/").permitAll()
                 .antMatchers("/web/assets/pages/**").permitAll()
                 .antMatchers("/web/**").permitAll()
                 .antMatchers("/index.html").permitAll()
